@@ -44,7 +44,7 @@ const ArticleForm = () => {
     e.preventDefault();
     const user = JSON.parse(localStorage.getItem('userInfo'));
     try {
-      await axios.post('http://localhost:5000/api/articles', form, { headers: { Authorization: `Bearer ${user.token}` } });
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/articles', form, { headers: { Authorization: `Bearer ${user.token}` } });
       alert('Article Created!');
       setForm({ title: '', slug: '', content: '', category: '' });
     } catch (err) { alert('Error'); }

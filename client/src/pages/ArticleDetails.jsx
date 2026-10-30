@@ -7,7 +7,7 @@ const ArticleDetails = () => {
   const [article, setArticle] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/content/articles/${id}`).then(res => setArticle(res.data));
+    axios.get(`${import.meta.env.VITE_API_URL}/api/content/articles/${id}`).then(res => setArticle(res.data));
   }, [id]);
 
   if (!article) return <div className="p-10">Loading...</div>;

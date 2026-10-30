@@ -16,7 +16,7 @@ const QuizAttempt = () => {
     if (!user) return navigate('/login');
     const fetchQuiz = async () => {
       const config = { headers: { Authorization: `Bearer ${user.token}` } };
-      const { data } = await axios.get(`http://localhost:5000/api/quizzes/${id}`, config);
+      const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/quizzes/${id}`, config);
       setQuiz(data);
       setTimeLeft(data.duration);
     };
@@ -40,7 +40,7 @@ const QuizAttempt = () => {
     const answersArray = quiz.questions.map((_, idx) => selectedOptions[idx] !== undefined ? selectedOptions[idx] : -1);
     try {
       const config = { headers: { Authorization: `Bearer ${user.token}` } };
-      const { data } = await axios.post('http://localhost:5000/api/quizzes/submit', 
+      const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/api/quizzes/submit`, 
         { quizId: id, answers: answersArray, timeTaken: quiz.duration - timeLeft }, 
         config
       );

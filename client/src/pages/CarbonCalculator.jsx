@@ -24,7 +24,7 @@ const config = { headers: { Authorization: `Bearer ${user.token}` } };
 // Use a slight timeout to simulate "thinking" so user sees something happened
 await new Promise(r => setTimeout(r, 500));
 
-const { data } = await axios.post('http://localhost:5000/api/carbon/calculate', formData, config);
+const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/api/carbon/calculate`, formData, config);
 setResult(data);
 setLoading(false);
 } catch (err) {

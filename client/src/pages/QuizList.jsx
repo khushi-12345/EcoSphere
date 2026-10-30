@@ -6,7 +6,7 @@ const QuizList = () => {
   const [quizzes, setQuizzes] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/quizzes').then(res => setQuizzes(res.data));
+    axios.get(`${import.meta.env.VITE_API_URL}/api/quizzes`).then(res => setQuizzes(res.data));
   }, []);
 
   return (

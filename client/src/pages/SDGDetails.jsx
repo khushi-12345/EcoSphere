@@ -7,7 +7,7 @@ const SDGDetails = () => {
   const [sdg, setSdg] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/content/sdgs/${id}`).then(res => setSdg(res.data));
+    axios.get(`${import.meta.env.VITE_API_URL}/api/content/sdgs/${id}`).then(res => setSdg(res.data));
   }, [id]);
 
   if (!sdg) return <div className="p-10 text-center">Loading...</div>;

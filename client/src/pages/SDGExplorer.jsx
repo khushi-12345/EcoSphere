@@ -7,7 +7,7 @@ const SDGExplorer = () => {
   const [search, setSearch] = useState('');
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/content/sdgs').then(res => setSdgs(res.data));
+    axios.get(`${import.meta.env.VITE_API_URL}/api/content/sdgs`).then(res => setSdgs(res.data));
   }, []);
 
   const filteredSdgs = sdgs.filter((sdg) =>

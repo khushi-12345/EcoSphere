@@ -6,7 +6,7 @@ const Articles = () => {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/content/articles').then(res => setArticles(res.data));
+    axios.get(`${import.meta.env.VITE_API_URL}/api/content/articles`).then(res => setArticles(res.data));
   }, []);
 
   return (

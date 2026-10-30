@@ -15,7 +15,7 @@ const Dashboard = () => {
     const fetchDashboard = async () => {
       try {
         const config = { headers: { Authorization: `Bearer ${user.token}` } };
-        const { data } = await axios.get('http://localhost:5000/api/dashboard', config);
+        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/dashboard`, config);
         setData(data);
       } catch (error) {
         console.error("Dashboard fetch error", error);
